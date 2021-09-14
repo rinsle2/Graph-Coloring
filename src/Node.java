@@ -10,7 +10,7 @@ public class Node<T> {
         nodeCount++;
     }
 
-    public void addEdge(T s, T d, boolean bidirectional) {
+    public void addEdge(T s, T d) {
         if(!map.containsKey(s)) {
             addVertex(s);
         }
