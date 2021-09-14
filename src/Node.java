@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 
 public class Node<T> {
-    private Map<T, List<T>> map = new HashMap<>();
+    private final Map<T, List<T>> map = new HashMap<>();
     private int nodeCount = 0;
     private ArrayList<Boolean> checks;
 
@@ -26,7 +26,7 @@ public class Node<T> {
         map.get(d).add(s);
     }
 
-    private void checkMatricies(List l, int colors, int nC) {
+    private void checkMatrix(LinkedList<T> l, int colors, int nC) {
         int len = l.size();
         if(len == nC - 1 && nC > colors) {
             for (int i=0;i<checks.size();i++) {
@@ -50,14 +50,14 @@ public class Node<T> {
         return false;
     }
     public void graphColoring(int numColors) {
-        map.forEach((k, v) -> checkMatricies(v, numColors, nodeCount));
+        map.forEach((k, v) -> checkMatrix(((LinkedList<T>) v), numColors, nodeCount));
         checks = new ArrayList<>();
         populate(numColors);
         System.out.print("Graph is ");
         if(allTrue(numColors)) {
             System.out.print("not");
         }
-        System.out.println("colorable with " + numColors + " colors.");
+        System.out.println("fully colored with " + numColors + " colors.");
     }
 
 
