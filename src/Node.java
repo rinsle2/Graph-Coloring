@@ -1,4 +1,9 @@
-import java.util.*;
+import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 
 public class Node<T> {
     private Map<T, List<T>> map = new HashMap<>();
