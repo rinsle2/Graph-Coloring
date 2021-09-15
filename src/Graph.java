@@ -11,8 +11,8 @@ public class Graph<T> {
     private int nodeCount = 0;
     private ArrayList<Boolean> checks;
     //Populate Boolean Array
-    private void populate(int numC) {
-        for (int i=0;i<=numC;i++) {
+    private void populate() {
+        for (int i=0;i<=nodeCount;i++) {
             checks.add(false);
         }
     }
@@ -36,10 +36,12 @@ public class Graph<T> {
     /*
     *
     * Checks the graph for proper coloring rules (checking for false cases later)
+    * This is the only function that will need to be fixed
     *
     */
     private void checkMatrix(LinkedList<T> l, int colors) {
         int len = l.size();
+        //Conditionals can be hell, ESPECIALLY WHEN NO ONE'S TESTED ANYTHING
         if(len == nodeCount - 1 && nodeCount > colors && len >= colors) {
             for (int i=0;i<checks.size();i++) {
                 if (!checks.get(i)) {
@@ -48,7 +50,13 @@ public class Graph<T> {
             }
         }
     }
-    private boolean allTrue(int numC) {
+    /*
+    *
+    * Checks the number of full rows in the matrix
+    *
+    *
+    */
+    private boolean subsetTrue(int numC) {
         int fullCount = 0;
         for (Boolean b: checks) {
             if(b) fullCount++;
@@ -59,9 +67,9 @@ public class Graph<T> {
     public void graphColoring(int numColors) {
         map.forEach((k, v) -> checkMatrix(((LinkedList<T>) v), numColors));
         checks = new ArrayList<>();
-        populate(numColors);
+        populate();
         System.out.print("Graph is ");
-        if(allTrue(numColors)) {
+        if(subsetTrue(numColors)) {
             System.out.print("not");
         }
         System.out.println("fully colored with " + numColors + " colors.");
