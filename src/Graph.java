@@ -9,20 +9,16 @@ public class Graph<T> {
     //Fields
     private final Map<T, List<T>> map = new HashMap<>();
     private int nodeCount = 0;
-    private ArrayList<Boolean> checks;
+    private final ArrayList<Boolean> checks = new ArrayList<>();
     //Populate Boolean Array
-    private void populate() {
-        for (int i=0;i<=nodeCount;i++) {
-            checks.add(false);
-        }
-    }
     Graph() {
     }
+    // O(1)
     public void addVertex(T n) {
         map.put(n, new LinkedList<>());
         nodeCount++;
     }
-
+    // O(1) technically
     public void addEdge(T s, T d) {
         if(!map.containsKey(s)) {
             addVertex(s);
@@ -33,8 +29,14 @@ public class Graph<T> {
         map.get(s).add(d);
         map.get(d).add(s);
     }
+    //O(n)
+    private void populate() {
+        for (int i=0;i<nodeCount;i++) {
+            checks.add(false);
+        }
+    }
     /*
-    *
+    * O(n^2)
     * Checks the graph for proper coloring rules (checking for false cases later)
     * This is the only function that will need to be fixed
     *
@@ -42,16 +44,17 @@ public class Graph<T> {
     private void checkMatrix(LinkedList<T> l, int colors) {
         int len = l.size();
         //Conditionals can be hell, ESPECIALLY WHEN NO ONE'S TESTED ANYTHING
-        if(len == nodeCount - 1 && nodeCount > colors && len >= colors) {
+        if((len == nodeCount - 1 || nodeCount > colors) && len >= colors) {
             for (int i=0;i<checks.size();i++) {
                 if (!checks.get(i)) {
                     checks.set(i, true);
+                    break;
                 }
             }
         }
     }
     /*
-    *
+    * O(n)
     * Checks the number of full rows in the matrix
     *
     *
@@ -64,13 +67,15 @@ public class Graph<T> {
         }
         return false;
     }
+
     public void graphColoring(int numColors) {
+        populate();//O(n)
+        // O(n^2)
         map.forEach((k, v) -> checkMatrix(((LinkedList<T>) v), numColors));
-        checks = new ArrayList<>();
-        populate();
         System.out.print("Graph is ");
+        //O(n)
         if(subsetTrue(numColors)) {
-            System.out.print("not");
+            System.out.print("not ");
         }
         System.out.println("fully colored with " + numColors + " colors.");
     }
