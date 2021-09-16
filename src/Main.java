@@ -1,13 +1,14 @@
 public class Main {
 
-    private void initialVertices(Graph<Integer> g, Integer verts) {
+    private static void initialVertices(Graph<Integer> g, Integer verts) {
         int i = 1;
         do {
             g.addVertex(i);
             i++;
         } while(i<verts);
     }
-    private void  initializeSquareGraph(Graph<Integer> g) {
+    //Square Graph with a cross in the middle
+    private static void initializeSquareGraph(Graph<Integer> g) {
             g.addEdge(1, 2);
             g.addEdge(2, 3);
             g.addEdge(3, 4);
@@ -15,7 +16,8 @@ public class Main {
             g.addEdge(2, 4);
             g.addEdge(1, 3);
     }
-    private void  initializeTriangleGraph(Graph<Integer> g) {
+    // Peterson Graph
+    private static void  initializeTriangleGraph(Graph<Integer> g) {
         g.addEdge(1, 2);
         g.addEdge(1, 5);
         g.addEdge(1, 6);
@@ -33,7 +35,7 @@ public class Main {
         g.addEdge(7, 9);
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Graph<Integer> g = new Graph<>();
         initialVertices(g, 5);
 //      initializeSquareGraph();

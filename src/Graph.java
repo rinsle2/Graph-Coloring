@@ -43,7 +43,7 @@ public class Graph<T> {
     */
     private void checkMatrix(LinkedList<T> l, int colors) {
         int len = l.size();
-        //Conditionals can be hell, ESPECIALLY WHEN NO ONE'S TESTED ANYTHING
+        //False negatives are given, working on a fix (readme is about to get a LOT longer due to iterating over the condition)
         if((len == nodeCount - 1 || nodeCount > colors) && len >= colors) {
             for (int i=0;i<checks.size();i++) {
                 if (!checks.get(i)) {
