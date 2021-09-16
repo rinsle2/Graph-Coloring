@@ -19,6 +19,7 @@ public class Graph<T> {
         nodeCount++;
     }
     // O(1) technically
+
     public void addEdge(T s, T d) {
         if(!map.containsKey(s)) {
             addVertex(s);
@@ -30,13 +31,14 @@ public class Graph<T> {
         map.get(d).add(s);
     }
     //O(n)
+    //Populate the checks for the condition
     private void populate() {
         for (int i=0;i<nodeCount;i++) {
-            checks.add(false);
+            checks.add(true);
         }
     }
     /*
-    * O(n^2)
+    * O(n)
     * Checks the graph for proper coloring rules (checking for false cases later)
     * This is the only function that will need to be fixed
     *
@@ -46,8 +48,8 @@ public class Graph<T> {
         //False negatives are given, working on a fix (readme is about to get a LOT longer due to iterating over the condition)
         if((len == nodeCount - 1 || nodeCount > colors) && len >= colors) {
             for (int i=0;i<checks.size();i++) {
-                if (!checks.get(i)) {
-                    checks.set(i, true);
+                if (checks.get(i)) {
+                    checks.set(i, false);
                     break;
                 }
             }
@@ -56,13 +58,13 @@ public class Graph<T> {
     /*
     * O(n)
     * Checks the number of full rows in the matrix
-    *
+    * May also need changing in the future if matrix is unusable
     *
     */
     private boolean subsetTrue(int numC) {
         int fullCount = 0;
         for (Boolean b: checks) {
-            if(b) fullCount++;
+            if(!b) fullCount++;
             if(fullCount >= numC) return true;
         }
         return false;
@@ -70,7 +72,7 @@ public class Graph<T> {
 
     public void graphColoring(int numColors) {
         populate();//O(n)
-        // O(n^2)
+        // O((n*(n-1) ))
         map.forEach((k, v) -> checkMatrix(((LinkedList<T>) v), numColors));
         System.out.print("Graph is ");
         //O(n)
