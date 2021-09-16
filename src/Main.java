@@ -17,7 +17,7 @@ public class Main {
             g.addEdge(1, 3);
     }
     // Peterson Graph
-    private static void  initializeTriangleGraph(Graph<Integer> g) {
+    private static void  initializePetersonGraph(Graph<Integer> g) {
         g.addEdge(1, 2);
         g.addEdge(1, 5);
         g.addEdge(1, 6);
@@ -39,7 +39,7 @@ public class Main {
         Graph<Integer> g = new Graph<>();
         initialVertices(g, 5);
 //      initializeSquareGraph();
-        initializeTriangleGraph(g);
+        initializePetersonGraph(g);
         g.graphColoring(3);
     }
 }

@@ -59,7 +59,7 @@ public class Graph<T> {
     * O(n)
     * Checks the number of full rows in the matrix
     * May also need changing in the future if matrix is unusable
-    *
+    * Based on the assumption of rules in the matrix and earlier condition
     */
     private boolean subsetTrue(int numC) {
         int fullCount = 0;
