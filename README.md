@@ -1,7 +1,7 @@
 # Graph-Coloring
 I still don't know why this started, but this will be gone if I do finish it.
 # Reason for this Project
-Woke up in the dead of night with an idea, why not try it, and since I know java the best, why not try in java? (I will try this in other languages that support the types, and implement it in languages that don't via libraries if the libraries don't already exist.)
+Woke up in the dead of night with an idea, why not try it, and since I know java the best, why not try in java? (I will try this in other languages that support the types, and implement it in languages that don't via libraries if the libraries don't already exist.)<br/>
 ##Initial Thoughts
 
 The initial idea I had seemed to simple for the solution, as each graph has an adjacency matrix, why not check against that for solving the issue.
@@ -20,5 +20,5 @@ Hypothesis : Adjusting the condition is necessary to delete the false positives,
 Result : Gives a false positive this time with the Peterson Graph, so additional adjustments are necessary.    
 
 ##### 3rd Iteration
-Hypothesis : <br/>
-Result : <br/>
+Hypothesis : HUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUH<br/>
+Result : POSSIBLE SOLUTION?????????????????????????????????????<br/>
