@@ -20,5 +20,5 @@ Hypothesis : Adjusting the condition is necessary to delete the false positives,
 Result : Gives a false positive this time with the Peterson Graph, so additional adjustments are necessary.    
 
 ##### 3rd Iteration
-Hypothesis : HUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUHHUH<br/>
-Result : POSSIBLE SOLUTION????????????????????????????????????? Currently shaking and really nervous, going to see if replicable in python/c/other languages<br/>
+Hypothesis : Setting the condition in checkMatrix from >= to > breaks the other test but passes the current broken one. What to do?<br/>
+Result : [REDACTED]<br/>
