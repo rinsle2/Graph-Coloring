@@ -45,8 +45,8 @@ public class Graph<T> {
     */
     private void checkMatrix(LinkedList<T> l, int colors) {
         int len = l.size();
-        //False negatives are given, working on a fix (readme is about to get a LOT longer due to iterating over the condition)
-        if((len == nodeCount - 1 || nodeCount > colors) && len >= colors) {
+        //False negatives are given, how do you fix it?
+        if((len == nodeCount - 1 || nodeCount > colors) && len >= colors) { //change >= to > and check both graphs to find the issue
             for (int i=0;i<checks.size();i++) {
                 if (checks.get(i)) {
                     checks.set(i, false);
