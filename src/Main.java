@@ -1,12 +1,4 @@
 public class Main {
-
-    private static void initialVertices(Graph<Integer> g, Integer verts) {
-        int i = 1;
-        do {
-            g.addVertex(i);
-            i++;
-        } while(i<verts);
-    }
     //Square Graph with a cross in the middle
     private static void initializeSquareGraph(Graph<Integer> g) {
             g.addEdge(1, 2);
@@ -37,7 +29,6 @@ public class Main {
 
     public static void main(String[] args) {
         Graph<Integer> g = new Graph<>();
-        initialVertices(g, 5);
 //      initializeSquareGraph();
         initializePetersonGraph(g);
         g.graphColoring(3);
