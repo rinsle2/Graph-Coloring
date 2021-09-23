@@ -1,4 +1,4 @@
-# Graph-Coloring
+# Graph Coloring Determinator
 I still don't know why this started, but this will be gone if I do finish it.
 # Reason for this Project
 Woke up in the dead of night with an idea, why not try it, and since I know java the best, why not try in java? (I will try this in other languages that support the types, and implement it in languages that don't via libraries if the libraries don't already exist.)<br/>
