@@ -1,5 +1,4 @@
 import java.util.Map;
-import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -7,7 +6,7 @@ import java.util.LinkedList;
 
 public class Graph<T> {
     //Fields
-    private final Map<T, List<T>> map = new HashMap<>();
+    private final Map<T, ArrayList<T>> map = new HashMap<>();
     private int nodeCount = 0;
     private final ArrayList<Boolean> checks = new ArrayList<>();
     //Populate Boolean Array
@@ -15,7 +14,7 @@ public class Graph<T> {
     }
     // O(1)
     public void addVertex(T n) {
-        map.put(n, new LinkedList<>());
+        map.put(n, new ArrayList<>());
         nodeCount++;
     }
     // O(1) technically
@@ -43,7 +42,8 @@ public class Graph<T> {
     * This is the only function that will need to be fixed
     *
     */
-    private void checkMatrix(LinkedList<T> l, int colors) {
+    private void checkMatrix(ArrayList<T> l, int colors) {
+        if(l.isEmpty()) return;
         int len = l.size();
         //False negatives are given, how do you fix it?
         if((len == nodeCount - 1 || nodeCount > colors) && len >= colors) { //change >= to > and check both graphs to find the issue
@@ -69,11 +69,16 @@ public class Graph<T> {
         }
         return false;
     }
+    
+    private void rowCounts(ArrayList<T> val) {
+        if(val.isEmpty()) nodeCount--;
+    }
 
     public void graphColoring(int numColors) {
         populate();//O(n)
         // O((n*(n-1) ))
-        map.forEach((k, v) -> checkMatrix(((LinkedList<T>) v), numColors));
+        map.forEach((k, v) -> rowCounts(v));
+        map.forEach((k, v) -> checkMatrix((v), numColors));
         System.out.print("Graph is ");
         //O(n)
         if(subsetTrue(numColors)) {
